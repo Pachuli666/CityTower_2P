@@ -18,8 +18,25 @@ public class MoveBlocks : MonoBehaviour
 
     void FixedUpdate()
     {
-        body.velocity = new Vector3(Mathf.Clamp(speed,0f,1f), 0, 0);
-        
+        body.velocity = new Vector3(speed,0, 0);
+
+        var pos = transform.position;
+        var ship_x = transform.position.x;
+
+        //SI EL CUBO PASA EL LIMITE REGRESA AL ORIGEN
+        if (ship_x > 3.3f)
+        {
+            pos.x = -3.3f;
+            transform.position = pos;
+        }
+
+        if (ship_x < -3.3f)
+        {
+            pos.x = 3.3f;
+            transform.position = pos;
+        }
+
+
     }
       
 
