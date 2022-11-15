@@ -5,14 +5,14 @@ using UnityEngine;
 public class BreakJoint : MonoBehaviour
 {
     public Rigidbody2D body;
-    public DistanceJoint2D distanceJoint;
+    public HingeJoint2D union;
 
 
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-        distanceJoint = GetComponent<DistanceJoint2D>();
+        union = GetComponent<HingeJoint2D>();
 
 
     }
@@ -22,7 +22,7 @@ public class BreakJoint : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            distanceJoint.enabled = false;
+            union.enabled = false;
 
 
             body.transform.position = new Vector3(Mathf.Clamp(body.position.x, -1.9f, 1.9f), transform.position.y, transform.position.z);
